@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,51 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="test_cam" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVH-QV-a7a">
+                                <rect key="frame" x="119" y="70" width="231" height="282"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CJV-Ji-Xz5">
+                                <rect key="frame" x="135" y="539" width="240" height="128"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGk-rt-bYY">
+                                <rect key="frame" x="40" y="592" width="22" height="22"/>
+                                <color key="backgroundColor" red="0.3921568627" green="0.78823529410000004" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="didTakePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Je3-lI-dx9"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="CJV-Ji-Xz5" firstAttribute="leading" secondItem="JGk-rt-bYY" secondAttribute="trailing" constant="73" id="6jn-LU-7KU"/>
+                            <constraint firstItem="JGk-rt-bYY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="572" id="9PG-YO-k98"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JGk-rt-bYY" secondAttribute="bottom" constant="53" id="J9E-BZ-txh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aVH-QV-a7a" secondAttribute="trailing" constant="25" id="Q1s-Vf-F53"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aVH-QV-a7a" secondAttribute="bottom" constant="315" id="S9M-fp-pOL"/>
+                            <constraint firstItem="CJV-Ji-Xz5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ajF-eW-2QK"/>
+                            <constraint firstItem="CJV-Ji-Xz5" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="bpA-R3-0KA"/>
+                            <constraint firstItem="CJV-Ji-Xz5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="135" id="kTq-bi-qwT"/>
+                            <constraint firstItem="aVH-QV-a7a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="nQN-m2-Xb5"/>
+                            <constraint firstItem="JGk-rt-bYY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="nu7-Wr-MMx"/>
+                            <constraint firstItem="aVH-QV-a7a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="119" id="pv1-zc-q48"/>
+                            <constraint firstItem="CJV-Ji-Xz5" firstAttribute="top" secondItem="aVH-QV-a7a" secondAttribute="bottom" constant="187" id="r0C-jk-EpC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="captureImageView" destination="CJV-Ji-Xz5" id="b5t-fV-NhM"/>
+                        <outlet property="previewView" destination="aVH-QV-a7a" id="G83-GE-ccH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>
